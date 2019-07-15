@@ -1,6 +1,6 @@
-  const todos = (state = [], action) => {
+const todos = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case "ADD_TODO":
       return [
         ...state,
         {
@@ -8,16 +8,19 @@
           text: action.text,
           completed: false
         }
-      ]
-    case 'TOGGLE_TODO':
+      ];
+    case "DELETE_TODO":
+      console.log("state", state);
+      return state.filter(todo => {
+        return todo.id !== action.id;
+      });
+    case "TOGGLE_TODO":
       return state.map(todo =>
-        (todo.id === action.id)
-          ? {...todo, completed: !todo.completed}
-          : todo
-      )
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default todos
+export default todos;
