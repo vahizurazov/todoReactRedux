@@ -2,15 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, toggleTodo, deleteItem }) => (
+const TodoList = ({
+  todos,
+  toggleTodo,
+  deleteItem,
+  isAllChecked,
+  selectAll
+}) => (
   <section className="main">
     <span>
       <input
         id="toggle-all"
         className="toggle-all"
         type="checkbox"
-        // checked={isAllChecked()}
-        // onChange={selectAll}
+        checked={todos.completed}
+        onChange={selectAll}
       />
       <label htmlFor="toggle-all">Mark all as complete</label>
     </span>

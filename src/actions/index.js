@@ -10,6 +10,14 @@ export const deleteItem = id => ({
   id: id
 });
 
+export const selectAll = () => ({
+  type: "SELECT_ALL"
+});
+
+export const isAllChecked = () => ({
+  type: "IS_ALL_CHECKED"
+});
+
 export const toggleTodo = id => ({
   type: "TOGGLE_TODO",
   id
