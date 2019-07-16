@@ -2,10 +2,11 @@ import React from "react";
 import FilterLink from "../containers/FilterLink";
 import ClearComleted from "../components/ClearComleted";
 import { VisibilityFilters } from "../actions";
+import { connect } from "react-redux";
 
-const Footer = props => {
+const Footer = ({ todosCount }) => {
   // const { countItem } = props;
-  // console.log("props", props);
+  console.log("todosCount", todosCount);
   // const pluralItem = countItem === 1 ? "item" : "items";
   return (
     <footer className="footer">
@@ -24,4 +25,4 @@ const Footer = props => {
   );
 };
 
-export default Footer;
+export default connect()(Footer);
