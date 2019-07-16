@@ -31,7 +31,7 @@ const todos = (state = [], action) => {
       return state.filter(todo => todo.id !== action.id);
 
     case "CLEAR_COMPLETED":
-      console.log("state", state);
+      // console.log("state", state);
 
       return state.filter(el => !el.completed);
 
