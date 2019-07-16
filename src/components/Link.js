@@ -1,22 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
 
 const Link = ({ active, children, onClick }) => (
-    <button
-       onClick={onClick}
-       disabled={active}
-       style={{
-           marginLeft: '4px',
-       }}
+  <li>
+    <a
+      className={active ? "selected" : ""}
+      onClick={onClick}
+      // disabled={active}
     >
       {children}
-    </button>
-)
+    </a>
+  </li>
+);
 
-Link.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
-}
-
-export default Link
+export default Link;

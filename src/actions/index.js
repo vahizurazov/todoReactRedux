@@ -1,7 +1,6 @@
-let nextTodoId = 0;
 export const addTodo = text => ({
   type: "ADD_TODO",
-  id: nextTodoId++,
+  id: Math.floor(+new Date() + Math.random() * 0xffffffff).toString(36),
   text
 });
 
@@ -16,6 +15,10 @@ export const selectAll = () => ({
 
 export const isAllChecked = () => ({
   type: "IS_ALL_CHECKED"
+});
+
+export const clearCompleted = () => ({
+  type: "CLEAR_COMPLETED"
 });
 
 export const toggleTodo = id => ({
