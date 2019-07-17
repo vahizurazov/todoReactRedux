@@ -2,17 +2,18 @@ import React from "react";
 import FilterLink from "../containers/FilterLink";
 import ClearComleted from "../components/ClearComleted";
 import { VisibilityFilters } from "../actions";
-import { connect } from "react-redux";
 
-const Footer = ({ todosCount }) => {
+const Footer = ({ todoCount, todosLength, isShowButton }) => {
   // const { countItem } = props;
-  console.log("todosCount", todosCount);
-  // const pluralItem = countItem === 1 ? "item" : "items";
+  // console.log("todoCount", todoCount);
+  const pluralItem = todoCount === 1 ? "item" : "items";
   return (
     <footer className="footer">
-      <span className="todo-count">
-        {/* <strong>{countItem}</strong> {itemWord} left */}
-      </span>
+      {!!todosLength && (
+        <span className="todo-count">
+          <strong>{todoCount}</strong> {pluralItem} left
+        </span>
+      )}
       <ul className="filters">
         <FilterLink filter={VisibilityFilters.SHOW_ALL}>All</FilterLink>
         <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>Active</FilterLink>
@@ -20,9 +21,9 @@ const Footer = ({ todosCount }) => {
           Completed
         </FilterLink>
       </ul>
-      <ClearComleted />
+      {!!isShowButton && <ClearComleted />}
     </footer>
   );
 };
 
-export default connect()(Footer);
+export default Footer;
