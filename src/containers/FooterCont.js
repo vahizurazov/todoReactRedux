@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Footer from "../components/Footer";
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   // console.log("stateToProps", state.todos.filter(el => !el.completed).length);
 
   return {
