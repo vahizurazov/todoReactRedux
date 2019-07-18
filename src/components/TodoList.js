@@ -1,13 +1,16 @@
 import React from "react";
-import Todo from "./Todo";
+import Todo from "../components/Todo";
 
 const TodoList = ({
   todos,
-  toggleTodo,
-  deleteItem,
-  selectAll,
-  isAllChecked
+  // toggleTodo,
+  // deleteItem,
+  isAllChecked,
+  // editTodo
+  actions
 }) => {
+  console.log(actions, "actions");
+
   return (
     <section className="main">
       {!!todos.length && (
@@ -17,7 +20,7 @@ const TodoList = ({
             className="toggle-all"
             type="checkbox"
             checked={isAllChecked}
-            onChange={selectAll}
+            onChange={actions.selectAll}
           />
           <label htmlFor="toggle-all">Mark all as complete</label>
         </span>
@@ -27,8 +30,10 @@ const TodoList = ({
           <Todo
             key={todo.id}
             {...todo}
-            onClick={() => toggleTodo(todo.id)}
-            deleteItemId={() => deleteItem(todo.id)}
+            {...actions}
+            // onClick={() => toggleTodo(todo.id)}
+            // deleteItemId={() => deleteItem(todo.id)}
+            // editTodo={() => editTodo(todo.id, todo.text)}
           />
         ))}
       </ul>

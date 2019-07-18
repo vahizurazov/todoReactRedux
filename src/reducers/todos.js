@@ -32,13 +32,19 @@ const todos = (state = [], action) => {
 
     case "CLEAR_COMPLETED":
       // console.log("state", state);
-
       return state.filter(el => !el.completed);
 
     case "TOGGLE_TODO":
       return state.map(todo =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
+    case "EDIT_TODO":
+      console.log("state.text", state);
+
+      return state.map(todo =>
+        todo.id === action.id ? { ...todo, text: action.text } : todo
+      );
+
     default:
       return state;
   }

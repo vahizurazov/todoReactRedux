@@ -9,6 +9,12 @@ export const deleteItem = id => ({
   id: id
 });
 
+export const editTodo = (id, text) => ({
+  type: "EDIT_TODO",
+  id,
+  text
+});
+
 export const selectAll = () => ({
   type: "SELECT_ALL"
 });
