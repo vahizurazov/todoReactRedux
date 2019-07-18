@@ -11,9 +11,7 @@ const todos = (state = [], action) => {
       ];
 
     case "SELECT_ALL":
-      // console.log("state.completed", state.every(el => el.completed));
       const isCompleted = state.every(el => el.completed);
-
       if (isCompleted) {
         state.map(el => {
           el.completed = false;
@@ -27,11 +25,9 @@ const todos = (state = [], action) => {
       }
 
     case "DELETE_TODO":
-      // console.log("state", state);
       return state.filter(todo => todo.id !== action.id);
 
     case "CLEAR_COMPLETED":
-      // console.log("state", state);
       return state.filter(el => !el.completed);
 
     case "TOGGLE_TODO":
@@ -39,8 +35,6 @@ const todos = (state = [], action) => {
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
     case "EDIT_TODO":
-      console.log("state.text", state);
-
       return state.map(todo =>
         todo.id === action.id ? { ...todo, text: action.text } : todo
       );

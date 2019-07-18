@@ -15,8 +15,6 @@ class Todo extends Component {
   };
 
   handleSave = (id, text) => {
-    console.log("id", id);
-    console.log("text", text);
     if (text.length === 0) {
       this.props.deleteItem(id);
     } else {
